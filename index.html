@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>I Love You ➡️ Pondati</title>
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 2rem;
+      color: #333;
+      overflow: hidden;
+    }
+
+    .heading {
+      font-size: 2.8rem;
+      animation: loveFade 2s infinite alternate;
+      color: #d63384;
+    }
+
+    @keyframes loveFade {
+      0% { opacity: 0.2; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+
+    .photo {
+      margin: 2rem auto;
+      width: 320px;
+      border-radius: 1rem;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+      border: 6px solid #ffc0cb;
+    }
+
+    .caption {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      color: #c2185b;
+      font-weight: bold;
+      text-shadow: 0 0 6px #ff69b4;
+    }
+
+    /* Custom Audio Player */
+    .audio-container {
+      background-color: #f8c3dc;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      display: inline-block;
+      margin-top: 2rem;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .controls button {
+      background-color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #d63384;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .controls button:hover {
+      transform: scale(1.1);
+    }
+
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 24px;
+      color: #ff4d88;
+      animation: floatHearts 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heading">Oiii En Chellaaa Pondatiiiii</div>
+  <img class="photo" src="IMG_20250726_003639.jpg" alt="The Most Gorgeous Woman" />
+
+  <div class="caption">
+    ✨ <span>You're the most ★ STUNNING ★ woman I have ever met in my life Diiii,Alagiyee♡</span> ✨
+  </div>
+
+  <!-- 💗 Custom Audio Player -->
+  <div class="audio-container">
+    <audio id="loveAudio" src="song.mp3"></audio>
+    <div class="controls">
+      <button onclick="document.getElementById('loveAudio').currentTime = 0;">⏮️</button>
+      <button onclick="togglePlay()" id="playPause">▶️</button>
+      <button onclick="document.getElementById('loveAudio').currentTime += 10;">⏭️</button>
+    </div>
+  </div>
+
+  <!-- 💖 Floating Hearts Generator -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 6 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // Custom play/pause toggle
+    const audio = document.getElementById('loveAudio');
+    const playPauseBtn = document.getElementById('playPause');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.innerText = "⏸️";
+      } else {
+        audio.pause();
+        playPauseBtn.innerText = "▶️";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
